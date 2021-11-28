@@ -7,7 +7,8 @@ public class Sprite {
 	public int width, height;
 	public int[] pixels;
 	
-	public Sprite(int width, int height, int color) {
+	public Sprite(int width, int height, int color) 
+	{
 		this.width = width;
 		this.height = height;
 		this.pixels = new int[width * height];

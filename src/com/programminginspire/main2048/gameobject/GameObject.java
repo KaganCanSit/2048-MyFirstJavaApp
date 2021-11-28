@@ -12,12 +12,13 @@ public class GameObject {
 	public double x, y;
 	public int width, height;
 	public Sprite sprite;			//Sprite Class'i Icerisinden Bir Nesne Olusturuyoruz.
-	public int value, speed = 8;
+	public int value, speed = 10;
 	public boolean moving = false, remove = false, hasMoved = false;
 	
 	Random rand = new Random();
 	
-	public GameObject(double x, double y) {
+	public GameObject(double x, double y) 
+	{
 		this.x = x;
 		this.y = y;
 		this.value = (rand.nextBoolean() ? 2 : 4);	//2 ve 4 Degerleri Icerisinden Birini Rastegele Olarak Value Degeri Icerisine Atiyoruz
@@ -47,31 +48,36 @@ public class GameObject {
 	}
 
 	//Ekran sinirlari icerisinde kal. Degilse hamle gerceklestir. (Hareket edebilirsin.)
-	public boolean canMove() {
+	public boolean canMove() 
+	{
 		if(x < 0 || x + width > Main.WIDTH || y < 0 || y + height > Main.HEIGHT)
 			return false;
+		
 		for(int i = 0; i < Game.objects.size(); i++) 
 		{
 			GameObject o = Game.objects.get(i);
 			if(this == o) continue;
-			if(x + width > o.x && x < o.x + o.width && y + height > o.y && y < o.y + o.height && value != o.value)
-				return false;
+			if(x + width > o.x && x < o.x + o.width && y + height > o.y && y < o.y + o.height && value != o.value) return false;
 		}
 		return true;
 	}
 	
 	
-	public void update() {
-		if(Game.moving) {
+	public void update() 
+	{
+		if(Game.moving) 
+		{
 			if(!hasMoved) hasMoved = true;
 			if(canMove()) moving = true;		
-			if(moving) {
+			if(moving) 
+			{
 				if(Game.dir == 0) x -= speed;
 				if(Game.dir == 1) x += speed;
 				if(Game.dir == 2) y -= speed;
 				if(Game.dir == 3) y += speed;
 			}
-			if(!canMove()) {
+			if(!canMove()) 
+			{
 				moving = false;
 				x = Math.round(x / 100) * 100;
 				y = Math.round(y / 100) * 100;
@@ -79,7 +85,8 @@ public class GameObject {
 		}	
 	}
 	
-	public void render() {
+	public void render()
+	{
 		Renderer.renderSprite(sprite, (int) x, (int) y);
 	}
 }

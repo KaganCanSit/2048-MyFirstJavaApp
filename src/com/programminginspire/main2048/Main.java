@@ -28,7 +28,8 @@ public class Main extends Canvas implements Runnable{
 	
 	
 	//Oyun formunun olceklendirmesi ve Frame, Oyun, Klavye Takibi Icin Diger Class'larden nesne ureterek forma dahil etme.
-	public Main() {
+	public Main() 
+	{
 		setPreferredSize(new Dimension((int) (WIDTH*scale), (int) (HEIGHT*scale)));
 		frame = new JFrame();
 		game = new Game();
@@ -36,22 +37,27 @@ public class Main extends Canvas implements Runnable{
 		addKeyListener(key);
 	}
 	
-	public void start() {
+	public void start() 
+	{
 		running = true;
 		thread = new Thread(this, "loopThread");
 		thread.start();
 	}
 	
-	public void stop() {
-		try {
+	public void stop() 
+	{
+		try 
+		{
 			thread.join();
 		}
-		catch (InterruptedException e) {
+		catch (InterruptedException e) 
+		{
 			e.printStackTrace();
 		}
 	}
 	
-	public void run() {
+	public void run() 
+	{
 		long lastTimeInNanoSeconds = System.nanoTime();
 		long timer = System.currentTimeMillis();
 		double nanoSecondsPerUpdate = 1000000000.0 / 60.0;
@@ -60,10 +66,12 @@ public class Main extends Canvas implements Runnable{
 		int updates = 0;
 		requestFocus();
 		
-		while(running) {
+		while(running) 
+		{
 			long currentTimeInNanoSeconds = System.nanoTime();
 			updatesToPerform += (currentTimeInNanoSeconds - lastTimeInNanoSeconds) / nanoSecondsPerUpdate;
-			if(updatesToPerform >= 1) {
+			if(updatesToPerform >= 1) 
+			{
 				update();
 				updates++;
 				updatesToPerform--;
@@ -81,12 +89,14 @@ public class Main extends Canvas implements Runnable{
 		}
 	}
 	
-	public void update(){
+	public void update()
+	{
 		game.update();
 		key.update();
 	}
 	
-	public void render() {
+	public void render() 
+	{
 		BufferStrategy bs = getBufferStrategy();
 		if(bs == null)
 		{
@@ -100,7 +110,6 @@ public class Main extends Canvas implements Runnable{
 		game.renderText(g);
 		g.dispose();
 		bs.show();
-		
 	}
 	
 	public static void main(String[] args) {
