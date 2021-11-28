@@ -1,5 +1,7 @@
 package com.programminginspire.main2048.graphics;
 
+
+//Bu Class Olusturulan Her Bir Kare Alan Icin Siyah Bir Dis Cerceve Ekler.
 public class Sprite {
 
 	public int width, height;
@@ -10,12 +12,14 @@ public class Sprite {
 		this.height = height;
 		this.pixels = new int[width * height];
 		
+		//Kare Alanlar Icin Olcut Ve Renk Atamasi - GameObject Class'i Ile Bagintili
 		for(int y = 0; y < height; y++) {
 			for(int x = 0; x < width; x++) {
 				pixels[x + y * width] = color;
 				
+				//Kare Alanlari Icin Cerceve
 				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97) {
-					pixels[x + y * width] = 0xffff00ff;
+					pixels[x + y * width] = 000000000;
 				}
 			}
 		}
