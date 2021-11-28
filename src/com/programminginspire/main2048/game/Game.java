@@ -80,9 +80,8 @@ public class Game {
 			boolean isAvailable = true;
 
 			for(int i = 0 ; i < objects.size(); i++)
-				if(objects.get(i).x / 100 == x && objects.get(i).y / 100 == y)
-					isAvailable = false;
-
+				if(objects.get(i).x / 100 == x && objects.get(i).y / 100 == y) isAvailable = false;
+	
 			if(isAvailable) available = true;
 		}
 		objects.add(new GameObject(x * 100, y * 100));

@@ -8,7 +8,6 @@ import com.programminginspire.main2048.graphics.Renderer;
 import com.programminginspire.main2048.graphics.Sprite;
 
 public class GameObject {
-
 	public double x, y;
 	public int width, height;
 	public Sprite sprite;			//Sprite Class'i Icerisinden Bir Nesne Olusturuyoruz.
@@ -22,7 +21,7 @@ public class GameObject {
 		this.x = x;
 		this.y = y;
 		this.value = (rand.nextBoolean() ? 2 : 4);	//2 ve 4 Degerleri Icerisinden Birini Rastegele Olarak Value Degeri Icerisine Atiyoruz
-		createSprite();								//Cikan ve olusan degerlere gore ekranda kare alan olusmasi ve rengini Sprite Class'i ile sagliyoruz.
+		createSprite();								//Cikan ve olusan degerlere gore ekranda kare alan olusmasini ve rengini Sprite Class'i ile sagliyoruz.
 		this.width = sprite.width;
 		this.height = sprite.height;
 	}
@@ -47,7 +46,7 @@ public class GameObject {
 		}
 	}
 
-	//Ekran sinirlari icerisinde kal. Degilse hamle gerceklestir. (Hareket edebilirsin.)
+	//Ekran sinirlari icerisinde kal. Sinirlar icerisinde ise hareket edebilirsin.
 	public boolean canMove() 
 	{
 		if(x < 0 || x + width > Main.WIDTH || y < 0 || y + height > Main.HEIGHT)
