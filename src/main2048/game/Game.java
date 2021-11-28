@@ -47,7 +47,7 @@ public class Game {
 		movingLogic();
 	}
 	
-
+	//Degerlerin Islenmesi Ve Kontrolu
 	private void checkForValueIncrease() 
 	{
 		for(int i = 0; i < objects.size(); i++) 
@@ -56,17 +56,18 @@ public class Game {
 				if(i == j) continue;
 				if(objects.get(i).x == objects.get(j).x && objects.get(i).y == objects.get(j).y && !objects.get(i).remove && !objects.get(j).remove) {
 					objects.get(j).remove = true;
-					objects.get(i).value *= 2;
-					objects.get(i).createSprite();
+					objects.get(i).value *= 2;			//i ve j Objelerinin Degerlerini Carpar(value*2=4 / value*4=8 gibi)
+					objects.get(i).createSprite();		//Yeni Olusan Deger Ile Birlikte Gorunumunu Degistiriyoruz. Bu Islemi Gerceklesmezsek Her Zaman Ayni Renk Ile Kalir.
 				}
 			}
-		
+		//Sayisal Deger Degisimi Gerceklestikten Sonra Alttakini Remove Et
 		for(int i = 0; i < objects.size(); i++)
 			if(objects.get(i).remove) objects.remove(i);
 
 		System.out.println(objects.size());
 	}
 
+	//Tahtaya Hamle Basina Yeni Kutu Ekleme
 	private void spawn() 
 	{
 		if(objects.size() == 16) return;
@@ -75,14 +76,18 @@ public class Game {
 		int x = 0, y = 0;
 		while(!available) 
 		{
+			//Yeni Kutunun Tahta Uzerindeki Rastgele Konumu 
 			x = rand.nextInt(4);
 			y = rand.nextInt(4);
 			boolean isAvailable = true;
-
+			
+			//Yeni Gelecek Olan Kutunun Diger Kutular Ile Kontrolu (Eger Varse = false / Uretme)
 			for(int i = 0 ; i < objects.size(); i++)
-				if(objects.get(i).x / 100 == x && objects.get(i).y / 100 == y) isAvailable = false;
-	
-			if(isAvailable) available = true;
+				if(objects.get(i).x / 100 == x && objects.get(i).y / 100 == y) 
+					isAvailable = false;
+			
+			if(isAvailable) 
+				available = true;
 		}
 		objects.add(new GameObject(x * 100, y * 100));
 	}
@@ -127,17 +132,18 @@ public class Game {
 	
 	public void render() 
 	{
-		Renderer.renderBackground();
+		Renderer.renderBackground(); 					//>Arkaplanin Yenilenmesi Ve Olusturulmasi
 		for(int i = 0; i < objects.size(); i++)
-			objects.get(i).render();
+			objects.get(i).render();					//Objelerin Olusturulmasi
 		for(int i = 0 ; i < Main.pixels.length; i++)
 			Main.pixels[i] = Renderer.pixels[i];
 	}
 	
+	//Yazi Degerlerinin Basimi Icin Ayarlar
 	public void renderText(Graphics2D g) 
 	{
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		g.setFont(new Font("Verdana", 0, 100));
+		g.setFont(new Font("Verdana", 0, 80));
 		g.setColor(Color.BLACK);
 		
 		for(int i = 0; i < objects.size(); i++) 

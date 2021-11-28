@@ -18,7 +18,7 @@ public class Sprite {
 			{	
 				pixels[x + y * width] = color;		
 				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97) {
-					pixels[x + y * width] = 000000000;		//Her Bir Sayi Ve Karesi Icin Cerceve
+					pixels[x + y * width] = 0x000000;		//Her Bir Sayi Ve Karesi Icin Cerceve
 				}
 			}
 	}

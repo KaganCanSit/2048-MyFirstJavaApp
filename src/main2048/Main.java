@@ -1,7 +1,9 @@
 package main2048;
 
-import java.awt.Canvas;
-import java.awt.Dimension;
+import java.awt.Canvas;			//Cizim Yapilabilir, Girdi Girilebilir Ekran Icin Kullaniyoruz.
+import java.awt.Dimension;		//Olceklendirme Ve Icerik Icin Kullaniyoruz.
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import java.awt.image.BufferStrategy;
@@ -27,7 +29,7 @@ public class Main extends Canvas implements Runnable{
 	public static int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
 	
-	//Oyun formunun olceklendirmesi ve Frame, Oyun, Klavye Takibi Icin Diger Class'larden nesne ureterek forma dahil etme.
+	//Oyun Formunun Olceklendirmesi Ve Frame, Oyun, Klavye Takibi Icin Diger Class'larden Nesne Ureterek Forma Dahil Etme.
 	public Main() 
 	{
 		setPreferredSize(new Dimension((int) (WIDTH*scale), (int) (HEIGHT*scale)));
@@ -115,8 +117,10 @@ public class Main extends Canvas implements Runnable{
 	
 	public static void main(String[] args) {
 		Main m = new Main();									//Main Icin Frame'i Nesnesini Olusturuyoruz.
+		ImageIcon img = new ImageIcon("D:\\Java_Eclipse_Workspace\\2048Game\\icon\\JFrameIcon.png");
+		m.frame.setIconImage(img.getImage());					//JFrame Icon
 		m.frame.setResizable(false);							//Frame (Form) Acildiktan Sonra Olceklenemez.
-		m.frame.setTitle("2048");								//Form Basligi "2048" olarak ayarla.
+		m.frame.setTitle("2048 Game");							//Form Basligi "2048" olarak ayarla.
 		m.frame.add(m);											//Form bilesenlerini Frame'e dahil et.
 		m.frame.pack();											//Alt bilesen iceriklerine gore boyutlandirma ile pencereyi ayarla.
 		m.frame.setVisible(true);								//Form gorunurlugu true

@@ -3,6 +3,7 @@ package main2048.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+//Bu Class Klavye Uzerindeki Hareketleri Gozleyerek Donut Verir.(W,A,S,D)
 public class Keyboard implements KeyListener {
 
 	public static boolean[] keys = new boolean[120];

@@ -21,12 +21,12 @@ public class GameObject {
 		this.x = x;
 		this.y = y;
 		this.value = (rand.nextBoolean() ? 2 : 4);	//2 ve 4 Degerleri Icerisinden Birini Rastegele Olarak Value Degeri Icerisine Atiyoruz
-		createSprite();								//Cikan ve olusan degerlere gore ekranda kare alan olusmasini ve rengini Sprite Class'i ile sagliyoruz.
+		createSprite();								//Cikan Ve Olusan Degerlere Gore Ekranda Kare Alan Olusmasini Ve Rengini Sprite Class'i Ile Sagliyoruz.
 		this.width = sprite.width;
 		this.height = sprite.height;
 	}
 	
-	//Deger ile beraber renk ve nesne olusumu.
+	//Deger Ile Beraber Renk Ve Nesne Olusumu.
 	public void createSprite() {
 		switch(this.value)
 		{
@@ -46,7 +46,7 @@ public class GameObject {
 		}
 	}
 	
-	//Ekran sinirlari icerisinde kal. Sinirlar icerisinde ise hareket edebilirsin.
+	//Ekran Sinirlari Icerisinde Kal. Sinirlar Icerisinde Ise Hareket Edebilirsin.
 	public boolean canMove() 
 	{	
 		if(x < 0 || x + width > Main.WIDTH || y < 0 || y + height > Main.HEIGHT)
@@ -67,7 +67,7 @@ public class GameObject {
 		{
 			if(!hasMoved) hasMoved = true;
 			if(canMove()) moving = true;		
-			if(moving) //x-y Duzleminde Hareket. "Dir" Degerlerini game Class'indan aliyoruz.
+			if(moving) //x-y Duzleminde Hareket. "Dir" Degerlerini game Class'indan Aliyoruz.
 			{
 				if(Game.dir == 0) x -= speed;
 				if(Game.dir == 1) x += speed;
@@ -83,7 +83,7 @@ public class GameObject {
 		}
 	}
 	
-	//Olusan Kare Alan Ve Ayarlarini Renderer Class'i yardimiyla ekrana basiyoruz.
+	//Olusan Kare Alan Ve Ayarlarini Renderer Class'i Yardimiyla Ekrana Basiyoruz.
 	public void render()
 	{
 		Renderer.renderSprite(sprite, (int) x, (int) y);

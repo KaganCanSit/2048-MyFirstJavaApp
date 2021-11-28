@@ -12,14 +12,13 @@ public class Renderer {
 		for(int y = 0; y < height; y++)
 			for(int x = 0; x < width; x++) 
 			{
-				pixels[x + y * width] = 0xfff4f4f4;								//Background Color Yukseklik Ve Genislik Boyunca Piksellere Renk Atamasi
-				
+				pixels[x + y * width] = 0xfff4f4f4;								//Background Color Yukseklik Ve Genislik Boyunca Piksellere Renk Atamasi			
 				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97)	//Background Ustunde Ara Cizgiler
-					pixels[x + y * width] = 0xffcccccc;
+					pixels[x + y * width] = 0xA9A9A9;
 			}
 	}
 
-	//Game Object Class'indan aldigi value ve renk bilgisine gore kare alani isler.
+	//Game Object Class'indan Aldigi Value Ve Renk Bilgisine Gore Kare Alani Isler.
 	public static void renderSprite(Sprite sprite, int xp, int yp) 
 	{
 		if(xp < -sprite.width || xp > width || yp < -sprite.height || yp > height) return;
