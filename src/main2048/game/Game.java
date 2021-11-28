@@ -1,4 +1,4 @@
-package com.programminginspire.main2048.game;
+package main2048.game;
 
 import java.awt.Font;
 import java.awt.Color;
@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.programminginspire.main2048.Main;
-import com.programminginspire.main2048.graphics.Renderer;
-import com.programminginspire.main2048.input.Keyboard;
-import com.programminginspire.main2048.gameobject.GameObject;
+import main2048.Main;
+import main2048.gameobject.GameObject;
+import main2048.graphics.Renderer;
+import main2048.input.Keyboard;
 
 public class Game {
 

@@ -1,5 +1,4 @@
-package com.programminginspire.main2048.graphics;
-
+package main2048.graphics;
 
 //Bu Class Olusturulan Her Bir Kare Alan Icin Siyah Bir Dis Cerceve Ekler.
 public class Sprite {
@@ -13,7 +12,7 @@ public class Sprite {
 		this.height = height;
 		this.pixels = new int[width * height];
 		
-		//Kare Alanlar Icin Olcut Ve Renk Atamasi - GameObject Class'i Ile Bagintili
+		//Kare Alanlar Icin Olcut Ve Renk Atamasi Yapildiktan Sonra Gorsel Olarak Islenmesi - GameObject Class'i Ile Bagintili
 		for(int y = 0; y < height; y++) 
 			for(int x = 0; x < width; x++) 
 			{	

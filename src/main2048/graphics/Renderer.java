@@ -1,6 +1,6 @@
-package com.programminginspire.main2048.graphics;
+package main2048.graphics;
 
-import com.programminginspire.main2048.Main;
+import main2048.Main;
 
 public class Renderer {
 	
@@ -12,13 +12,14 @@ public class Renderer {
 		for(int y = 0; y < height; y++)
 			for(int x = 0; x < width; x++) 
 			{
-				pixels[x + y * width] = 0xfff4f4f4;
+				pixels[x + y * width] = 0xfff4f4f4;								//Background Color Yukseklik Ve Genislik Boyunca Piksellere Renk Atamasi
 				
-				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97)
+				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97)	//Background Ustunde Ara Cizgiler
 					pixels[x + y * width] = 0xffcccccc;
 			}
 	}
-	
+
+	//Game Object Class'indan aldigi value ve renk bilgisine gore kare alani isler.
 	public static void renderSprite(Sprite sprite, int xp, int yp) 
 	{
 		if(xp < -sprite.width || xp > width || yp < -sprite.height || yp > height) return;
@@ -26,13 +27,15 @@ public class Renderer {
 		for(int y = 0; y < sprite.height; y++) 
 		{
 			int yy = y + yp;
-			if(yy < 0 || yy > height) continue;
+			if(yy < 0 || yy > height)
+				continue;
 			
 			for(int x = 0; x < sprite.width; x++) 
 			{
 				int xx = x + xp;
 				if(xx < 0 || xx > width) continue;
 				int col = sprite.pixels[x + y * sprite.width];
+				
 				if(col == 0xffff00ff) continue;
 				else pixels[xx + yy * width] = col;
 			}

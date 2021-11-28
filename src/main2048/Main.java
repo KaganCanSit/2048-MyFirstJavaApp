@@ -1,4 +1,4 @@
-package com.programminginspire.main2048;
+package main2048;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -9,8 +9,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.awt.Graphics2D;
 
-import com.programminginspire.main2048.game.Game;
-import com.programminginspire.main2048.input.Keyboard;
+import main2048.game.Game;
+import main2048.input.Keyboard;
 
 public class Main extends Canvas implements Runnable{
 	
@@ -95,6 +95,7 @@ public class Main extends Canvas implements Runnable{
 		key.update();
 	}
 	
+	
 	public void render() 
 	{
 		BufferStrategy bs = getBufferStrategy();
@@ -104,10 +105,10 @@ public class Main extends Canvas implements Runnable{
 			return;
 		}
 		
-		game.render();
+		game.render();																		//Oyun alaninin render islemi
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-		g.drawImage(image, 0, 0, (int) (WIDTH*scale) , (int)(HEIGHT*scale),null);
-		game.renderText(g);
+		g.drawImage(image, 0, 0, (int) (WIDTH*scale) , (int)(HEIGHT*scale),null);			//Oyun alaninin Render ederken olceklendirmesi
+		game.renderText(g);																	//Ekran uzerinde sayilari render et(Goster)
 		g.dispose();
 		bs.show();
 	}

@@ -1,11 +1,11 @@
-package com.programminginspire.main2048.gameobject;
+package main2048.gameobject;
 
 import java.util.Random;
 
-import com.programminginspire.main2048.Main;
-import com.programminginspire.main2048.game.Game;
-import com.programminginspire.main2048.graphics.Renderer;
-import com.programminginspire.main2048.graphics.Sprite;
+import main2048.Main;
+import main2048.game.Game;
+import main2048.graphics.Renderer;
+import main2048.graphics.Sprite;
 
 public class GameObject {
 	public double x, y;
@@ -45,17 +45,16 @@ public class GameObject {
 			case 8192:	this.sprite = new Sprite(100, 100, 0xEC4D58);	break;
 		}
 	}
-
+	
 	//Ekran sinirlari icerisinde kal. Sinirlar icerisinde ise hareket edebilirsin.
 	public boolean canMove() 
-	{
+	{	
 		if(x < 0 || x + width > Main.WIDTH || y < 0 || y + height > Main.HEIGHT)
 			return false;
 		
 		for(int i = 0; i < Game.objects.size(); i++) 
 		{
 			GameObject o = Game.objects.get(i);
-			if(this == o) continue;
 			if(x + width > o.x && x < o.x + o.width && y + height > o.y && y < o.y + o.height && value != o.value) return false;
 		}
 		return true;
@@ -68,7 +67,7 @@ public class GameObject {
 		{
 			if(!hasMoved) hasMoved = true;
 			if(canMove()) moving = true;		
-			if(moving) 
+			if(moving) //x-y Duzleminde Hareket. "Dir" Degerlerini game Class'indan aliyoruz.
 			{
 				if(Game.dir == 0) x -= speed;
 				if(Game.dir == 1) x += speed;
@@ -80,10 +79,11 @@ public class GameObject {
 				moving = false;
 				x = Math.round(x / 100) * 100;
 				y = Math.round(y / 100) * 100;
-			}
-		}	
+			}				
+		}
 	}
 	
+	//Olusan Kare Alan Ve Ayarlarini Renderer Class'i yardimiyla ekrana basiyoruz.
 	public void render()
 	{
 		Renderer.renderSprite(sprite, (int) x, (int) y);

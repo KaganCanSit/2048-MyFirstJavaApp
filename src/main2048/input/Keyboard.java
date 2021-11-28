@@ -1,4 +1,4 @@
-package com.programminginspire.main2048.input;
+package main2048.input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
