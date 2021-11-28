@@ -13,16 +13,13 @@ public class Sprite {
 		this.pixels = new int[width * height];
 		
 		//Kare Alanlar Icin Olcut Ve Renk Atamasi - GameObject Class'i Ile Bagintili
-		for(int y = 0; y < height; y++) {
-			for(int x = 0; x < width; x++) {
-				pixels[x + y * width] = color;
-				
-				//Kare Alanlari Icin Cerceve
+		for(int y = 0; y < height; y++) 
+			for(int x = 0; x < width; x++) 
+			{	
+				pixels[x + y * width] = color;		
 				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97) {
-					pixels[x + y * width] = 000000000;
+					pixels[x + y * width] = 000000000;		//Her Bir Sayi Ve Karesi Icin Cerceve
 				}
 			}
-		}
 	}
-	
 }

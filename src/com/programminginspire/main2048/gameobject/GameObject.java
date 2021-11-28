@@ -63,13 +63,8 @@ public class GameObject {
 	
 	public void update() {
 		if(Game.moving) {
-			if(!hasMoved) {
-				hasMoved = true;
-			}
-			if(canMove()) {
-				moving = true;
-			}
-			
+			if(!hasMoved) hasMoved = true;
+			if(canMove()) moving = true;		
 			if(moving) {
 				if(Game.dir == 0) x -= speed;
 				if(Game.dir == 1) x += speed;
@@ -81,8 +76,7 @@ public class GameObject {
 				x = Math.round(x / 100) * 100;
 				y = Math.round(y / 100) * 100;
 			}
-		}
-	
+		}	
 	}
 	
 	public void render() {
