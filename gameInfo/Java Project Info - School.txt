@@ -1,0 +1,18 @@
+Proje Sunumları
+Son tarih: 31 Aralık 2021 23:59
+Yönergeler
+Merhabalar, dönem başı söylediğim (ders başarı notuna ektisi yüzde %30 olan) proje sunum dosyanızı yüklemeniz için bu ödev yapısını oluşturdum.
+Proje sunumları 31 Aralık tarihindeki son dersimizde yapılacaktır. İsteyen öğrenciler proje sunumlarını bir önceki hafta olan 24 Aralık 2021 tarihinde ders saatinde yapabilir.
+Proje ekipleri en fazla 4 kişi olacaktır. Geliştireceğiniz projenin içeriği tamamen size kalmıştır. İstediğiniz bir uygulamayı (Görsel, Konsol veya Web) java teknolojileri ile yapmak kaydı ile proje olarak sunabilirsiniz.
+Projeler illa saf java kodu olmak zorunda değildir. Aynı zamanda java temelli kod yapısına sahip olan Google Android Studio, Processing veya Java Swing ile de proje geliştirilebilir.
+
+Sunumlar 24 Aralık ve 31 Aralık Tarihlerinde sınıfta olacaktır sınıftaki sunumlardan sonra online sunum yapmak isteyen öğrenciler için teams üzerinde ders açılacak ve sınıfa gelemeyen öğrenciler o zaman geliştirdikleri projeyi uzaktan teams üzerinden de sunabilirler. 
+Ekip sayısı fazla olan projelerden beklentim doğal olarak daha fazla olacaktır. Proje notlandırması ise aşağıdaki şekilde olacaktır.
+
+1-Power Point Sunumu (Sunum içeriğinde proje adı, hazırlayanlar, içindekiler, projenin amacı, proje bilgisi, uygulamaya ait ekran gösterimi ve kullanılan kaynaklar bulunacaktır.)
+2-Sunum Başarısı
+3-Proje Zorluğu
+4-Proje Sonu Sorulan Sorulara verilen cevaplar 
+	Her bir alan 25 puan olmak üzere notlandırma yapılacaktır.
+
+İyi günler dilerim.
