@@ -13,9 +13,9 @@ public class Renderer {
 		for(int y = 0; y < height; y++)
 			for(int x = 0; x < width; x++) 
 			{
-				pixels[x + y * width] = 0xfff4f4f4;											
+				pixels[x + y * width] = 0xABB2B9;											
 				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97)
-					pixels[x + y * width] = 0xA9A9A9;
+					pixels[x + y * width] = 0xEAECEE;
 			}
 	}
 

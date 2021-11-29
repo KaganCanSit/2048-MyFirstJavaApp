@@ -58,6 +58,7 @@ public class Main extends Canvas implements Runnable{
 		}
 	}
 	
+	//Ekran Yenileme(FPS)
 	public void run() 
 	{
 		long lastTimeInNanoSeconds = System.nanoTime();
