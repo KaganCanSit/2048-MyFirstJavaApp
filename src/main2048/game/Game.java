@@ -81,11 +81,11 @@ public class Game {
 			y = rand.nextInt(4);
 			boolean isAvailable = true;
 			
-			//Yeni Gelecek Olan Kutunun Diger Kutular Ile Kontrolu (Eger Varse = false / Uretme)
+			//Yeni Gelecek Olan Kutunun Diger Kutular Ile Kontrolu (Eger Varsa = false / Uretme)
 			for(int i = 0 ; i < objects.size(); i++)
-				if(objects.get(i).x / 100 == x && objects.get(i).y / 100 == y) 
+				if(objects.get(i).x / 100 == x && objects.get(i).y / 100 == y)
 					isAvailable = false;
-			
+							
 			if(isAvailable) 
 				available = true;
 		}
@@ -113,28 +113,27 @@ public class Game {
 		if(!moving && !hasMoved) 
 		{
 			if(Keyboard.keyDown(KeyEvent.VK_A)) 
-				KeyboardFunction(true,true,0);
+				KeyboardFunction(0);
 			else if(Keyboard.keyDown(KeyEvent.VK_D)) 
-				KeyboardFunction(true,true,1);
+				KeyboardFunction(1);
 			else if(Keyboard.keyDown(KeyEvent.VK_W))
-				KeyboardFunction(true,true,2);
+				KeyboardFunction(2);
 			else if(Keyboard.keyDown(KeyEvent.VK_S)) 
-				KeyboardFunction(true,true,3);
+				KeyboardFunction(3);
 		}
 	}
-	
-	public void KeyboardFunction(boolean d1, boolean d2, int d3)
+	public void KeyboardFunction(int d3)
 	{
-		hasMoved = d1;
-		moving = d2;
+		hasMoved = true;
+		moving = true;
 		dir = d3;
 	}
 	
 	public void render() 
 	{
 		Renderer.renderBackground(); 					//>Arkaplanin Yenilenmesi Ve Olusturulmasi
-		for(int i = 0; i < objects.size(); i++)
-			objects.get(i).render();					//Objelerin Olusturulmasi
+		for(int i = 0; i < objects.size(); i++)			//Objelerin(Kutularin) Olusturulmasi
+			objects.get(i).render();					
 		for(int i = 0 ; i < Main.pixels.length; i++)
 			Main.pixels[i] = Renderer.pixels[i];
 	}

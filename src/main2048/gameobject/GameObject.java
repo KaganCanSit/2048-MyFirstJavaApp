@@ -29,25 +29,14 @@ public class GameObject {
 	//Deger Ile Beraber Renk Ve Nesne Olusumu.
 	public void createSprite() {
 		int[] colorCode= {0xefe5db, 0xece0c8, 0xf1b078, 0xEB8C52, 0xF57C5F, 0xEC563D, 0xF2D86A, 0xECC750, 0xE5BF2D, 0xE2B913, 0xEDC22E, 0x5DDB92, 0xEC4D58};
-		switch(this.value)
-		{
-			case 2:  	MinimalSprite(colorCode[0]); 	break;
-			case 4:  	MinimalSprite(colorCode[1]); 	break;
-			case 8:  	MinimalSprite(colorCode[2]); 	break;
-			case 16: 	MinimalSprite(colorCode[3]); 	break;
-			case 32: 	MinimalSprite(colorCode[4]); 	break;
-			case 64: 	MinimalSprite(colorCode[5]);	break;
-			case 128:	MinimalSprite(colorCode[6]);	break;
-			case 256:	MinimalSprite(colorCode[7]);	break;
-			case 512:	MinimalSprite(colorCode[8]);	break;
-			case 1024:	MinimalSprite(colorCode[9]);	break;
-			case 2048: 	MinimalSprite(colorCode[10]);	break;
-			case 4096:	MinimalSprite(colorCode[11]);	break;
-			case 8192:	MinimalSprite(colorCode[12]);	break;
-		}
-	}	
-	public void MinimalSprite(int colorCode) {
-		this.sprite = new Sprite(100,100,colorCode);
+		int[] valueCheck = {2,4,8,16,32,64,128,256,512,1024,2048,4096,8192};
+		
+		for(int i=0;i<valueCheck.length;i++)
+			if(this.value==valueCheck[i])
+			{
+				this.sprite = new Sprite(100,100,colorCode[i]);
+				break;
+			}
 	}
 	
 	//Ekran Sinirlari Icerisinde Kal. Sinirlar Icerisinde Ise Hareket Edebilirsin.
