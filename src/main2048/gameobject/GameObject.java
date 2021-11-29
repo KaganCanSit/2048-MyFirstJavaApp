@@ -20,7 +20,7 @@ public class GameObject {
 	{
 		this.x = x;
 		this.y = y;
-		this.value = (rand.nextBoolean() ? 2 : 4);	//2 ve 4 Degerleri Icerisinden Birini Rastegele Olarak Value Degeri Icerisine Atiyoruz
+		this.value = (rand.nextBoolean() ? 2 : 4);	//2 ve 4 Degerleri Icerisinden Birini Rastgele Olarak Value Degeri Icerisine Atiyoruz
 		createSprite();								//Cikan Ve Olusan Degerlere Gore Ekranda Kare Alan Olusmasini Ve Rengini Sprite Class'i Ile Sagliyoruz.
 		this.width = sprite.width;
 		this.height = sprite.height;
@@ -52,6 +52,7 @@ public class GameObject {
 		if(x < 0 || x + width > Main.WIDTH || y < 0 || y + height > Main.HEIGHT)
 			return false;
 		
+		//Degerlerin Kontrolu 2/2 - 4/4 - 8/8
 		for(int i = 0; i < Game.objects.size(); i++) 
 		{
 			GameObject o = Game.objects.get(i);
@@ -66,8 +67,9 @@ public class GameObject {
 		if(Game.moving) 
 		{
 			if(!hasMoved) hasMoved = true;
-			if(canMove()) moving = true;		
-			if(moving) //x-y Duzleminde Hareket. "Dir" Degerlerini game Class'indan Aliyoruz.
+			if(canMove()) moving = true;
+			//x-y Duzleminde Hareket. "Dir" Degerlerini game Class'indan Aliyoruz.
+			if(moving) 
 			{
 				if(Game.dir == 0) x -= speed;
 				if(Game.dir == 1) x += speed;

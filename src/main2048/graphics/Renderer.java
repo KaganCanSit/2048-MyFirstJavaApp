@@ -7,13 +7,14 @@ public class Renderer {
 	public static int width = Main.WIDTH, height = Main.HEIGHT;
 	public static int[] pixels = new int[width * height];
 	
+	//Background Color Yukseklik Ve Genislik Boyunca Piksellere Renk Atamasi - Background Ustunde Ara Cizgiler
 	public static void renderBackground() 
 	{
 		for(int y = 0; y < height; y++)
 			for(int x = 0; x < width; x++) 
 			{
-				pixels[x + y * width] = 0xfff4f4f4;								//Background Color Yukseklik Ve Genislik Boyunca Piksellere Renk Atamasi			
-				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97)	//Background Ustunde Ara Cizgiler
+				pixels[x + y * width] = 0xfff4f4f4;											
+				if(x % 100 < 3 || x % 100 > 97 || y % 100 < 3 || y % 100 > 97)
 					pixels[x + y * width] = 0xA9A9A9;
 			}
 	}
@@ -35,6 +36,7 @@ public class Renderer {
 				if(xx < 0 || xx > width) continue;
 				int col = sprite.pixels[x + y * sprite.width];
 				
+				//Sprite Ile Olusturulmus Alanin Atanmasi
 				if(col == 0xffff00ff) continue;
 				else pixels[xx + yy * width] = col;
 			}
