@@ -5,6 +5,8 @@ import java.awt.Dimension;		//Olceklendirme Ve Icerik Icin Kullaniyoruz.
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -20,6 +22,7 @@ public class Main extends Canvas implements Runnable{
 	public static float scale = 2.0f;					//Olcek
 	
 	public JFrame frame;
+	public JLabel label;
 	public Thread thread;
 	public Keyboard key;
 	public Game game;
@@ -32,7 +35,7 @@ public class Main extends Canvas implements Runnable{
 	//Oyun Formunun Olceklendirmesi Ve Frame, Oyun, Klavye Takibi Icin Diger Class'larden Nesne Ureterek Forma Dahil Etme.
 	public Main() 
 	{
-		setPreferredSize(new Dimension((int) (WIDTH*scale), (int) (HEIGHT*scale)));
+		setPreferredSize(new Dimension((int) (WIDTH*scale+300), (int) (HEIGHT*scale)));
 		frame = new JFrame();
 		game = new Game();
 		key = new Keyboard();
@@ -45,19 +48,7 @@ public class Main extends Canvas implements Runnable{
 		thread = new Thread(this, "loopThread");
 		thread.start();
 	}
-	
-	public void stop() 
-	{
-		try 
-		{
-			thread.join();
-		}
-		catch (InterruptedException e) 
-		{
-			e.printStackTrace();
-		}
-	}
-	
+		
 	//Ekran Yenileme(FPS)
 	public void run() 
 	{
@@ -120,13 +111,27 @@ public class Main extends Canvas implements Runnable{
 		Main m = new Main();									//Main Icin Frame'i Nesnesini Olusturuyoruz.
 		ImageIcon img = new ImageIcon("D:\\Java_Eclipse_Workspace\\2048Game\\icon\\JFrameIcon.png");
 		m.frame.setIconImage(img.getImage());					//JFrame Icon
-		m.frame.setResizable(false);							//Frame (Form) Acildiktan Sonra Olceklenemez.
-		m.frame.setTitle("2048 Game");							//Form Basligi "2048" olarak ayarla.
+		
+		JLabel label = new JLabel("<html>2048 GAME RULE<br><br>"
+				+ "- Different values cannot be added together. Values can be summed when the samevalues are superimposed.<br><br>"
+				+ "- The game is single player.<br><br>"
+				+ "- The playing field consists of a 4 by 4 squarearea.<br><br>"
+				+ "- The game ends when there is no value tomove and no value to collect.<br><br>"
+				+ "- You can direct the playing field with the w, a,s, d keys on the keyboard.<br><br>"
+				+ "- Press r to restart the game.<br><br>"
+				+ "- As a result of each move, new values areadded to the playing field. These values canbe 2 or 4.<br><br>"
+				+ "HAVE FUN!<br>SEE YOU LATER...</html>",SwingConstants.CENTER);
+		label.setBounds(820, 30, 260, 400);
+	    m.frame.add(label);
+		label.setVisible(true);
+
+		m.frame.setResizable(false);							
+		m.frame.setTitle("2048 Game");							
 		m.frame.add(m);											//Form bilesenlerini Frame'e dahil et.
 		m.frame.pack();											//Alt bilesen iceriklerine gore boyutlandirma ile pencereyi ayarla.
-		m.frame.setVisible(true);								//Form gorunurlugu true
+		m.frame.setVisible(true);								
 		m.frame.setLocationRelativeTo(null);					//Null ile temel ayar ile ekranin ortasinda goruntule
-		m.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//Form uzerine kapatma islemini ekliyoruz.
+		m.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		m.frame.setAlwaysOnTop(true);							//Form her zaman en ustte kalsin.
 		m.start();
 	}	
