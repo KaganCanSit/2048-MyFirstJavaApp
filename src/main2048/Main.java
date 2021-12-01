@@ -2,16 +2,15 @@ package main2048;
 
 import java.awt.Canvas;			//Cizim Yapilabilir, Girdi Girilebilir Ekran Icin Kullaniyoruz.
 import java.awt.Dimension;		//Olceklendirme Ve Icerik Icin Kullaniyoruz.
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
+import java.awt.Graphics2D;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
-import java.awt.Graphics2D;
 
 import main2048.game.Game;
 import main2048.input.Keyboard;
